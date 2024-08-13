@@ -51,5 +51,7 @@
                 <version>2.22.2</version>
             </plugin>
         </plugins>
+        <!-- need to mention the jar file name which u will access via docker -->
+        <finalName>assignment-maven</finalName>
     </build>
 </project>
