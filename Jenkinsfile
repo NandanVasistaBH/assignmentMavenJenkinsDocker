@@ -22,5 +22,10 @@ pipeline{
                 bat "mvn install"
             }
         }
+        stage("Build Docker image"){
+            script{
+                bat "docker build -t assignment-maven"
+            }
+        }
     }
 }
