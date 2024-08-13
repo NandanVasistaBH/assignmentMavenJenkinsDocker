@@ -23,8 +23,10 @@ pipeline{
             }
         }
         stage("Build Docker image"){
-            script{
-                bat "docker build -t assignment-maven"
+            steps{
+                    script{
+                    bat "docker build -t assignment-maven"
+                }
             }
         }
     }
