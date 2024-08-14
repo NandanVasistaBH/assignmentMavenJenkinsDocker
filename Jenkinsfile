@@ -23,6 +23,11 @@ pipeline {
                 bat "mvn install"
             }
         }
+        stage("Pull an image to check if docker exists"){
+            step{
+                bat "docker pull mongo"
+            }
+        }
         stage("Build Docker image") {
             steps {
                 script {
