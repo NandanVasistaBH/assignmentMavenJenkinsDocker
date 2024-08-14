@@ -4,6 +4,11 @@ pipeline {
         PATH = "C:/Users/e039325/Downloads/apache-maven-3.9.8-bin/apache-maven-3.9.8/bin;${env.PATH}"
     }
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()  // This cleans the workspace
+            }
+        }
         stage('Clone') {
             steps {
                 checkout([
