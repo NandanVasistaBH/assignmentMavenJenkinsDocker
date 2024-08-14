@@ -24,7 +24,7 @@ pipeline {
             }
         }
         stage("Pull an image to check if docker exists"){
-            step{
+            steps{
                 bat "docker pull mongo"
             }
         }
