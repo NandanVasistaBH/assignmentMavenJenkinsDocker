@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent any
     environment {
         PATH = "C:/Users/e039325/Downloads/apache-maven-3.9.8-bin/apache-maven-3.9.8/bin;${env.PATH}"
@@ -11,22 +11,23 @@ pipeline{
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[url: 'https://github.com/NandanVasistaBH/mavenJenkinsDocker.git']]
                 ])
-
             }
         }
-        stage("maven"){
-            steps{
-                bat "mvn clean compile"
-                bat "mvn clean test"
-                bat "mvn clean package"
+        stage('List Files') {
+            steps {
+                bat "dir"
+            }
+        }
+        stage("Maven") {
+            steps {
                 bat "mvn install"
             }
         }
-        stage("Build Docker image"){
-            steps{
-                script{
-                bat "docker build -t nandan/assignment-maven ."
-            }
+        stage("Build Docker image") {
+            steps {
+                script {
+                    bat "docker build -t nandan/assignment-maven ."
+                }
             }
         }
     }
